@@ -13,6 +13,10 @@ export const handler = NextAuth({
     signIn: "/auth/signin",
   },
   callbacks: {
+    async signIn({ user, account, profile, email, credentials }) {
+      console.log("signIn", { user, account, profile, email, credentials });
+      return true;
+    },
     async redirect({ url, baseUrl }) {
       return baseUrl;
     },
